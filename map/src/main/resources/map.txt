@@ -1,0 +1,11 @@
+http://www.gpsspg.com/apis/maps/geo/?lat=39.8974450000&lng=116.3313980000&type=0
+http://api.map.baidu.com/?qt=rgc&x=12962812.95&y=4829626.33
+http://api.map.baidu.com/geocoder/v2/?ak=1XjLLEhZhQNUzd93EjU5nOGQ&callback=renderReverse&location=39.983424,116.322987&output=xml&pois=1
+
+高德
+http://lbs.amap.com/console/show/picker
+http://restapi.amap.com/v3/geocode/regeo?key=8325164e247e15eea68b59e89200988b&s=rsv3&location=116.416271,40.042525
+
+百度
+http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
+http://api.map.baidu.com/geocoder/v2/?output=json&ak=1XjLLEhZhQNUzd93EjU5nOGQ&location=39.970475,116.560646

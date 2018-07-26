@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="gaode.json"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		for (var i = 0; i < cityData.length; i++) {
+			var province = cityData[i];
+			console.log("----" + province.name)
+			for (var j = 0; j < province.city.length; j++) {
+				var city = province.city[j];
+				console.log("----" + province.name + "----" + city.name)
+				for (var k = 0; k < city.area.length; k++) {
+					console.log("----" + province.name + "----" + city.name + "----" + city.area[k].name)
+				}
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing websockets</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Java API for WebSocket (JSR-356)</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="/js/websocket.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<span id="status" class="label label-important">Not Connected</span>
+		</div>
+		<br /> <label style="display: inline-block">Message: </label> <input type="text" id="message"  value="{subject:'你好',content:'hello'}"/>
+		<button id="send" class="btn btn-primary" onclick="sendMessage()">Send</button>
+		<table id="received_messages" class="table table-striped">
+			<tr>
+				<th>#</th>
+				<th>Sender</th>
+				<th>Message</th>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

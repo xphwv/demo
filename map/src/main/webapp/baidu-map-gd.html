@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>获取地区轮廓线</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=1XjLLEhZhQNUzd93EjU5nOGQ"></script>
+<script type="text/javascript" src="gaode.json"></script>
+<style type="text/css">
+body {
+	font-size: 13px;
+	margin: 10px
+}
+
+#container {
+	width: 800px;
+	height: 500px;
+	border: 1px solid gray
+}
+</style>
+</head>
+<body>
+	<div id="container"></div>
+	<div id="event_descr"></div>
+	<br />输入省、直辖市或县名称：
+	<input type="text" id="districtName" style="width: 80px" value="桂林市">
+	<input type="button" id="btn_districtName" value="获取轮廓线">
+	<script type="text/javascript">
+		var fso = new ActiveXObject("Scripting.FileSystemObject");
+		var folderName = "e:\\china\\百度\\";
+		if (!fso.FolderExists(folderName))
+			fso.CreateFolder(folderName);
+
+		var map = new BMap.Map("container");
+		map.centerAndZoom(new BMap.Point(116.403765, 39.914850), 5);
+		map.addControl(new BMap.NavigationControl({
+			type : BMAP_NAVIGATION_CONTROL_SMALL
+		}));
+		map.enableScrollWheelZoom();
+
+		// 		//直辖市 
+		// 		if (cityData.municipalities && cityData.municipalities.length > 0) {
+		// 			for (var i = 0, n = cityData.municipalities.length; i < n; i++) {
+		// 				var mu = cityData.municipalities[i];
+		// 				getBoundary(mu.n, "");
+		// 			}
+		// 		}
+		// 		// 普通省
+		// 		for (var i = 0, n = cityData.provinces.length; i < n; i++) {
+		// 			var pv = cityData.provinces[i];
+		// 			var newFolderName = folderName + pv.n
+		// 			if (!fso.FolderExists(newFolderName))
+		// 				newFolderName = fso.CreateFolder(folderName + pv.n);
+		// 			getBoundary(pv.n, "");
+		// 			for (var j = 0, m = pv.cities.length; j < m; j++) {
+		// 				getBoundary(pv.cities[j].n, pv.n);
+		// 			}
+
+		// 		}
+
+		// 		// 其他地区
+		// 		if (cityData.other && cityData.other.length > 0) {
+		// 			for (var i = 0, n = cityData.other.length; i < n; i++) {
+		// 				var oth = cityData.other[i];
+		// 				getBoundary(oth.n, "");
+		// 			}
+
+		// 		}
+		
+		/*
+		var cityData2 = [['内蒙古自治区','呼伦贝尔市','扎赉诺尔区'],['内蒙古自治区','鄂尔多斯市','康巴什区'],['四川省','巴中市','恩阳区'],['宁夏回族自治区','吴忠市','红寺堡区'],['安徽省','六安市','叶集区'],['安徽省','马鞍山市','博望区'],['山东省','临沂市','兰陵县'],['山东省','德州市','陵城区'],['广西壮族自治区','玉林市','福绵区'],['新疆维吾尔自治区','伊犁哈萨克自治州','霍尔果斯市'],['新疆维吾尔自治区','吐鲁番市','高昌区'],['新疆维吾尔自治区','哈密市','伊州区'],['江苏省','无锡市','新吴区'],['江苏省','无锡市','梁溪区'],['江西省','九江市','共青城市'],['河北省','保定市','莲池区'],['河南省','三门峡市','陕州区'],['河南省','开封市','祥符区'],['海南省','三亚市','吉阳区'],['海南省','三亚市','天涯区'],['海南省','三亚市','崖州区'],['海南省','三亚市','海棠区'],['海南省','三沙市','中沙群岛的岛礁及其海域'],['海南省','三沙市','南沙群岛'],['海南省','三沙市','西沙群岛'],['湖北省','十堰市','郧阳区'],['湖北省','随州市','随县'],['甘肃省','临夏回族自治州','积石山保安族东乡族撒拉族自治县'],['西藏自治区','日喀则市','桑珠孜区'],['西藏自治区','昌都市','卡若区'],['西藏自治区','林芝市','巴宜区'],['西藏自治区','那曲地区','双湖县'],['贵州省','毕节市','七星关区'],['贵州省','贵阳市','观山湖区'],['辽宁省','沈阳市','浑南区'],['重庆市','重庆市市辖区','开州区'],['香港特别行政区','东区','东区']];
+		
+		
+		for (var i = 0; i < cityData2.length; i++) {
+			var province = cityData2[i][0];
+			var city = cityData2[i][1];
+			var city_area = "";
+			if(cityData2[i].length==3)
+			{
+				city_area = cityData2[i][2];
+			}
+			getBoundary(province,city,city_area);
+		}
+		*/
+		
+				for (var i = 0; i < cityData.length; i++) {
+			var province = cityData[i];
+// 			getBoundary(province.name, "", "")
+			for (var j = 0; j < province.city.length; j++) {
+				var city = province.city[j];
+// 				getBoundary(province.name, city.name, "")
+				for (var k = 0; k < city.area.length; k++) {
+					//getBoundary(province.name, city.name, city.area[k].name)
+				}
+			}
+		}
+		/*
+		var data2 = ['临沧','德宏','怒江','昭通','普洱','曲靖','楚雄','玉溪','迪庆','乌兰察布','乌海','通辽','鄂尔多斯','阿拉善盟','广元','自贡','阿坝','中卫','吴忠','固原','石嘴山','池州','淮北','东营','朔州','百色','贺州','防城港','五家渠','克孜勒苏','博尔塔拉','吐鲁番','图木舒克','巴音郭楞','昌吉','石河子','阿勒泰','阿拉尔','新余','济源','丽水','舟山','三沙','临高','乐东','保亭','文昌','昌江','澄迈','琼中','白沙','天门','神农架','张家界','怀化','临夏','嘉峪关','天水','平凉','张掖','武威','甘南','白银','酒泉','金昌','陇南','宁德','山南','拉萨','昌都','林芝','那曲','六盘水','毕节','铜仁','黔南','黔西南','朝阳','阜新','果洛','海北','海南','海西','玉树','黄南','伊春','大兴安岭','绥化','鸡西','黑河','文山','辽源','哈密','五指山','屯昌','日喀则','阿里','黔东南','海东','鹤岗','南安','诸暨','寿光','海门','启东','海安县','如东县','溧阳','邳州','新沂','海宁','桐乡','东台','建湖县','丹阳','扬中','泰兴','靖江','兴化','惠东县','博罗县','长兴县','德清县','宜都','禹州','东海县','庄河','慈溪','宁国','象山县','库尔勒','阳春','馆陶','顺德','鄢陵','诸城','长葛','日土县','改则县','天长','和县','永新','台山','垦利','沛县','嘉善县'];
+		
+		for(var j=0;j<data2.length;j++){
+			getBoundary("其他", data2[j], "");
+		}
+		*/
+		function getBoundary(pName, cName, aName) {
+			var path = "";
+			var name = "";
+			if (pName != "" && cName == "" && aName == "") {
+				name = pName;
+				path = folderName;
+			} else if (pName != "" && cName != "" && aName == "") {
+				name = cName;
+				path = folderName + "\\" + pName + "\\";
+			} else if (pName != "" && cName != "" && aName != "") {
+				name = aName;
+				path = folderName + "\\" + pName + "\\" + cName + "\\";
+			}
+			if (!fso.FolderExists(path)) {
+				fso.CreateFolder(path);
+			}
+			path = path + name + ".data";
+			// 			console.log(pName + "---------" + cName + "---------" + aName + "----:" + path)
+			var bdary = new BMap.Boundary();
+			var ss = cName.substring(0,cName.length)+aName.substring(0,aName.length);
+			bdary.get(name, function(rs) { //获取行政区域
+				map.clearOverlays(); //清除地图覆盖物       
+				var count = rs.boundaries.length; //行政区域的点有多少个
+				if (count == 0) {
+					var str = pName + cName + aName;
+					if (str.indexOf("其他") == -1) {
+						console.error(pName + "---------" + cName + "---------"
+								+ aName)
+					}
+				}
+				for (var i = 0; i < count; i++) {
+					var ply = new BMap.Polygon(rs.boundaries[i], {
+						strokeWeight : 2,
+						strokeColor : "#ff0000"
+					}); //建立多边形覆盖物
+					map.addOverlay(ply); //添加覆盖物
+					map.setViewport(ply.getPath()); //调整视野         
+
+				}
+				try {
+					var newFileObject = fso.CreateTextFile(path, true);
+					for (var i = 0; i < count; i++) {
+						newFileObject.write(rs.boundaries[i]);
+						if (i != count - 1) {
+							newFileObject.write("|");
+						}
+					}
+					newFileObject.Close();
+				} catch (e) {
+					console.error(path + e);
+				}
+				//  eventsTable.innerHTML = rs.boundaries[0].length +':'+ rs.boundaries[0];
+			});
+		}
+
+		$(function() {
+			$("#btn_districtName").click(function() {
+				getBoundary("其他", $("#districtName").val(), "");
+			});
+		});
+	</script>
+</body>
+</html>
