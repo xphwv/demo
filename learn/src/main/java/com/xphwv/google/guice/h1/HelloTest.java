@@ -1,18 +1,13 @@
 package com.xphwv.google.guice.h1;
 
-import java.util.concurrent.TimeUnit;
-
-import com.xphwv.google.guice.scope.ThreadServiceScope;
-import org.junit.Test;
-
-import com.google.inject.Binder;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Module;
-import com.google.inject.Provider;
+import com.google.inject.*;
 import com.google.inject.name.Names;
 import com.xphwv.google.guice.an.One;
 import com.xphwv.google.guice.an.Two;
+import com.xphwv.google.guice.scope.ThreadServiceScope;
+import org.junit.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class HelloTest {
 	/**
